@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ResiPark_NetBeans" default="jar" basedir=".">
+    <property file="nbproject/project.properties"/>
+    <target name="clean"><delete dir="build"/><delete dir="dist"/></target>
+    <target name="compile">
+        <mkdir dir="${build.classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${build.classes.dir}" encoding="UTF-8" source="17" target="17" includeantruntime="false"/>
+    </target>
+    <target name="jar" depends="compile">
+        <mkdir dir="${dist.dir}"/>
+        <jar destfile="${dist.jar}" basedir="${build.classes.dir}" manifest="${manifest.file}"/>
+    </target>
+    <target name="compile-tests" depends="compile">
+        <mkdir dir="${build.dir}/test-classes"/>
+        <javac srcdir="${test.src.dir}" destdir="${build.dir}/test-classes" encoding="UTF-8" source="17" target="17" includeantruntime="false">
+            <classpath><pathelement location="${build.classes.dir}"/></classpath>
+        </javac>
+    </target>
+    <target name="test" depends="compile-tests">
+        <java classname="resipark.PruebasEstructuras" fork="true" failonerror="true">
+            <classpath><pathelement location="${build.classes.dir}"/><pathelement location="${build.dir}/test-classes"/></classpath>
+        </java>
+    </target>
+    <target name="run" depends="compile"><java classname="${main.class}" classpath="${build.classes.dir}" fork="true"/></target>
+</project>
