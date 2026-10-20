@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ResiPark-impl" default="default" basedir="..">
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+    <property name="dist.dir" value="dist"/>
+    <property name="main.class" value="resipark.ResiPark"/>
+    <target name="default" depends="jar"/>
+    <target name="clean"><delete dir="${build.dir}"/><delete dir="${dist.dir}"/></target>
+    <target name="compile">
+        <mkdir dir="${build.dir}/classes"/>
+        <javac srcdir="${src.dir}" destdir="${build.dir}/classes" encoding="UTF-8" source="17" target="17" includeantruntime="false"/>
+    </target>
+    <target name="jar" depends="compile">
+        <mkdir dir="${dist.dir}"/>
+        <jar destfile="${dist.dir}/ResiPark.jar" basedir="${build.dir}/classes">
+            <manifest><attribute name="Main-Class" value="${main.class}"/></manifest>
+        </jar>
+    </target>
+    <target name="run" depends="compile"><java classname="${main.class}" classpath="${build.dir}/classes" fork="true"/></target>
+</project>
