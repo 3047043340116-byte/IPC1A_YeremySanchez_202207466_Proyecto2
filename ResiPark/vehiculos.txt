@@ -1,3 +1,3 @@
-P123ABC|Toyota|Corolla|Blanco|R001
-P456DEF|Honda|Civic|Azul|R002
-M789GHI|Yamaha|FZ|Negro|R003
+P123ABC|Toyota|2020|Rojo|automovil|R1
+P123ABC|Toyota|2020|Rojo|motocicleta|R1
+P123ABC|Toyota|2020|Rojo|pickup|R1
