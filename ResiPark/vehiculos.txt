@@ -1,3 +1,0 @@
-P123ABC|Toyota|2020|Rojo|automovil|R1
-P123ABC|Toyota|2020|Rojo|motocicleta|R1
-P123ABC|Toyota|2020|Rojo|pickup|R1

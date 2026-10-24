@@ -17,8 +17,9 @@ public class ListaSimpleVehiculos {
         this.tamaño = 0;
     }
 
+    // 1. INSERTAR (Máximo 3 vehículos por residente)
     public boolean insertar(Vehiculo v) {
-        if (tamaño >= 3) return false; // Máximo 3 vehículos por residente
+        if (tamaño >= 3) return false;
         Nodo nuevo = new Nodo(v);
         if (cabeza == null) {
             cabeza = nuevo;
@@ -33,15 +34,19 @@ public class ListaSimpleVehiculos {
         return true;
     }
 
+    // 2. BUSCAR POR PLACA
     public Vehiculo buscarPorPlaca(String placa) {
         Nodo aux = cabeza;
         while (aux != null) {
-            if (aux.vehiculo.getPlaca().equalsIgnoreCase(placa)) return aux.vehiculo;
+            if (aux.vehiculo.getPlaca().equalsIgnoreCase(placa)) {
+                return aux.vehiculo;
+            }
             aux = aux.siguiente;
         }
         return null;
     }
 
+    // 3. ELIMINAR (Validando que el vehículo esté en estado FUERA)
     public boolean eliminar(String placa) {
         if (cabeza == null) return false;
         if (cabeza.vehiculo.getPlaca().equalsIgnoreCase(placa)) {
@@ -63,6 +68,7 @@ public class ListaSimpleVehiculos {
         return false;
     }
 
-    public int getTamaño() { return tamaño; }
+    // 4. RECORRER (Para iterar los nodos manualmente)
     public Nodo getCabeza() { return cabeza; }
+    public int getTamaño() { return tamaño; }
 }
